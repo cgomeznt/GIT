@@ -102,13 +102,16 @@ Acceso con Autenticacion
 
 Una manera simple de hacerlo es con la ayuda de apache.
 
-En el servidor agregamos esto a la configuracion del virtualhost:
-<Location /git>
-  AuthType Basic
-  AuthName "Private Git Access"
-  AuthUserFile "/etc/git-auth-file"
-  Require valid-user
-</Location>::
+En el servidor agregamos esto a la configuracion del virtualhost::
+
+	<Location /git>
+	  AuthType Basic
+	  AuthName "Private Git Access"
+	  AuthUserFile "/etc/git-auth-file"
+	  Require valid-user
+	</Location>
+
+.::
 
 	# vi git.conf
 	<VirtualHost *:80>
