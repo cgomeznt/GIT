@@ -1,3 +1,3 @@
 ## GIT
 
-* [Instalar un servidor GIT](guia/instalargitserver.md)
+* [Instalar un servidor GIT](guia/instalargitserver.rst)
