@@ -45,7 +45,7 @@ Anonimo pueda escribir
 
 Esto no debe ser considerado en produccion.::
 
-	$ /opt/repos/Cursos.git
+	$ /cd opt/repos/Cursos.git
 	$ git config http.receivepack true
 
 Probamos desde el cliente.::
@@ -102,7 +102,7 @@ Acceso con Autenticacion
 
 Una manera simple de hacerlo es con la ayuda de apache.
 
-En el servidor agregamos esto a la configuracion del virtualhost::
+En el servidor agregamos esto a la configuracion del virtualhost.::
 
 	<Location /git>
 	  AuthType Basic
