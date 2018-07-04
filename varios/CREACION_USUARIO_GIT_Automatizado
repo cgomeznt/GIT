@@ -1,0 +1,59 @@
+
+CREACION USUARIO GIT
+=========================
+
+Usuario: gitadmin
+Contraseña: G1t@dm1n@2017
+
+
+# ssh gitadmin@192.168.111.5
+
+gitadmin@srv-git:~$ ls
+000-default.conf  dead.letter  Downloads       gitolite.conf       Music          Public        repositorios_colombia.tar.gz  user_list
+add_user_git.sh   Desktop      gitadmin.pub    gitolite-utilities  Pictures       repos         Templates                     Videos
+backup-gitolite   Documents    gitolite-admin  htpasswd            projects.list  repositories  tools
+
+
+Agregar el usuario al archivo htpasswd con el siguiente script
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+gitadmin@srv-git:~$ vi user_list 
+	# Agregamos el username dos veces con un espacio en blanco
+	ycmarcano ycmarcano
+
+gitadmin@srv-git:~$ ./add_user_git.sh 
+Adding password for user ycmarcano
+
+
+Agregamos al usuario en el gitolite
++++++++++++++++++++++++++++++++++++
+
+gitadmin@srv-git:~$ cd gitolite-utilities/
+£ /home/gitadmin/gitolite-admin/conf/gitolite.conf
+
+gitadmin@srv-git:~/gitolite-utilities$ ls
+crear_usuario.sh  git-daemon-export-ok  gitolite-commit.sh  gitolite.conf.backup  gitolite.conf.backup_20180117  gl-conf  prueba.conf
+
+gitadmin@srv-git:~/gitolite-utilities$ ./crear_usuario.sh  ycmarcano developer
+!! El usuario no exite!!
+probando la siguiente linea
+Usuario ycmarcano Agregado !!!!!!!!!!!!
+
+
+Actualizamos el gitolite
++++++++++++++++++++++++++++++++++++
+
+gitadmin@srv-git:~/gitolite-utilities$ ./gitolite-commit.sh "Se agrego el usuario ycmarcano ticket SCM-7059"
+[master 8c0b3db] Se agrego el usuario ycmarcano ticket SCM-7059
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Counting objects: 4, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 383 bytes | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+To gitbox:gitolite-admin
+   8251692..8c0b3db  master -> master
+
+
+gitadmin@srv-git:~/gitolite-utilities$ 
+

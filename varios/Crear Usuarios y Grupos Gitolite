@@ -1,0 +1,41 @@
+Crear Grupo para unos Repos de Git
+==================================
+
+Ejemplo:
+Por favor crear el grupo "QAAutomation" con los usuarios: 
+-agil 
+-jfiguera 
+-fjaleman 
+
+para los siguientes repositorios: 
+-http://192.168.111.5:9000/git/AutomationAcseleTest.git 
+-http://192.168.111.5:9000/git/AutomationTestAcsele.git 
+y dejar solo ese grupo para dichos repositorios. 
+
+NOTA: Los repos ya deben existir en GIT
+
+Usuario: gitadmin
+Contraseña: G1t@dm1n@2017
+
+
+# ssh gitadmin@192.168.111.5
+$ /home/gitadmin/gitolite-admin/conf
+$ vi gitolite.conf
+	@qaAutomation = agil jfiguera fjaleman
+
+	repo AutomationAcseleTest 
+	    RW+                         = @scm
+	    RW  master$                 = @qaAutomation 
+	    R                           = @tester
+
+	repo AutomationTestAcsele
+	    RW+                         = @scm
+	    RW  master$                 = @qaAutomation
+	    R                           = @tester
+
+$ cd /home/gitadmin/gitolite-utilities
+
+$ gitolite-commit.sh "Ticket SCM-6893"
+
+Listo
+
