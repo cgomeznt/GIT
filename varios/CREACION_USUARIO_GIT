@@ -1,0 +1,27 @@
+
+
+Usuario: gitadmin
+Contraseña: G1t@dm1n@2017
+
+
+# ssh gitadmin@192.168.111.5
+# cd /opt/git
+# htpasswd .htpasswd gctovar 
+New password: Gct0v4r2017
+Re-type new password: Gct0v4r2017
+Adding password for user gctovar 
+
+LUEGO SE DEBE ENVIAR EL CORREO A LOS USUARIOS CON SUS CREDENCIALES PARA EL GIT
+
+
+Credenciales de Git
+
+Buenas tardes, Grey Tovar.
+
+Para realizar conexión con el servicio Git sus credenciales:   
+           
+usuario: gctovar   
+Contraseña: Gct0v4r2017
+
+Atentamente.
+

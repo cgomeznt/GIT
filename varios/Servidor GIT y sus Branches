@@ -1,0 +1,175 @@
+En el servidor 192.168.111.5 de Git en Colombia, esta son sus rutas de los repositorios
+  Fetch URL: http://192.168.111.5:9000/git/Acsel-e.git
+  Push  URL: http://192.168.111.5:9000/git/Acsel-e.git
+
+Dentro de ella estan los siguientes BRACHES:
+  Remote branches:
+    Acsele12.9_RimacWorksite                          tracked
+    Acsele12.9_RimacWorksite2                         tracked
+    AcseleV11.6.0_ASSA                                tracked
+    AcseleV11.9.9_InterDesa                           tracked
+    AcseleV12.9RC_Interseguro_IMP23869                tracked
+    AcseleV12.9_RimacWorksite2_20170220               tracked
+    AcseleV13.8                                       tracked
+    AcseleV13.8--POC-BiceVida-JBoss-AWS               tracked
+    AcseleV13.8-ALFA                                  tracked
+    AcseleV13.8-ALFA-Prod-20170328                    tracked
+    AcseleV13.8-ALFA_20170519                         tracked
+    AcseleV13.8-ALFA_20170630                         tracked
+    AcseleV13.8-ALFA_Certificacion                    tracked
+    AcseleV13.8-AXA-20160916                          tracked
+    AcseleV13.8-AXA-20171020                          tracked
+    AcseleV13.8-AXAProd                               tracked
+    AcseleV13.8-AXAProd-LA-201608016                  tracked
+    AcseleV13.8-AXAProd-ReasMult-LA-20161226          tracked
+    AcseleV13.8-Asesuisa-20170601                     tracked
+    AcseleV13.8-Asesuisa-20171205                     tracked
+    AcseleV13.8-Asesuisa-20171212                     tracked
+    AcseleV13.8-Asesuisa-20171219                     tracked
+    AcseleV13.8-Educacion-20160620                    tracked
+    AcseleV13.8-IS-VT-SOAT                            tracked
+    AcseleV13.8-Interseguro-20160618                  tracked
+    AcseleV13.8-Interseguro-PreProduccion             tracked
+    AcseleV13.8-Interseguro-VidaProduccion            tracked
+    AcseleV13.8-Interseguro-VidaTradicional           tracked
+    AcseleV13.8-LBC-20160926                          tracked
+    AcseleV13.8-Preventa-20170608                     tracked
+    AcseleV13.8-RIMAC-20170124                        tracked
+    AcseleV13.8-RIMAC-20170817                        tracked
+    AcseleV13.8-Rural-FASEII-20170214                 tracked
+    AcseleV13.8-Rural-Produccion-20170109             tracked
+    AcseleV13.8AXAPreProduccion-20161124              tracked
+    AcseleV13.8AXAPreProduccion-20170306              tracked
+    Branch_master                                     tracked
+    Mobile_Acsel_X                                    tracked
+    Mobile_Vitalicia                                  tracked
+    Mobile_VitaliciaV1.4                              tracked
+    Mobile_VitaliciaV1.5                              tracked
+    Mobile_Vitalicia_Desarrollo                       tracked
+    Mobile_Vitalicia_III                              tracked
+    master                                            tracked
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20160722 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20171109 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20171130 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20171201 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/Acselev13.8-AXAProd           stale (use 'git remote prune' to remove)
+
+Comandos utilizados para identificar la fuente
+
+$ git ls-remote --heads origin
+9b8f47d3592946ea40db8069988bdb4e739a08d8	refs/heads/Acsele12.9_RimacWorksite
+035fb0302060cd4fa6abdee971330adb82474456	refs/heads/Acsele12.9_RimacWorksite2
+3b2aa2202c141a15092bbb5eaaaa5f5495f0ffb4	refs/heads/AcseleV11.6.0_ASSA
+ec2eea2021fca34a962f76b78232172935925b8a	refs/heads/AcseleV11.9.9_InterDesa
+a6e1b967b849db13666da846935a48b13311a645	refs/heads/AcseleV12.9RC_Interseguro_IMP23869
+83cc28446ae3396a502d5547b87ce2d1ff8ce59f	refs/heads/AcseleV12.9_RimacWorksite2_20170220
+b6182a7ef80a806f7415780425e9567292578f22	refs/heads/AcseleV13.8
+9e9c902a9b3551f975367d68bb295fa82e74c5f3	refs/heads/AcseleV13.8--POC-BiceVida-JBoss-AWS
+3dc4d4877497706ec21c4ac0d851c036cff2990e	refs/heads/AcseleV13.8-ALFA
+b24c4dadba81f8ce393d22810d531ba7e725699a	refs/heads/AcseleV13.8-ALFA-Prod-20170328
+2130c4fe1ec2e41c824500c41e01ea62a5a71d0d	refs/heads/AcseleV13.8-ALFA_20170519
+e89a0db55474acb1b9b60ef6237b081bd8728403	refs/heads/AcseleV13.8-ALFA_20170630
+844833dff86099771f7c177649c3e6c2b8a068e3	refs/heads/AcseleV13.8-ALFA_Certificacion
+7ec928c829c5bad27252572abaaab9ffc12a75ad	refs/heads/AcseleV13.8-AXA-20160916
+9a08fc12d386a3d9077be98bee94de40cc609c68	refs/heads/AcseleV13.8-AXA-20171020
+029d21a7de8587f8b620a626c33bff14dfa3828f	refs/heads/AcseleV13.8-AXAProd
+976e6ee645aea7edf6a450de5308640eb6472b1d	refs/heads/AcseleV13.8-AXAProd-LA-201608016
+520e3130099b67af7a2b6755ebfbb45a68d6ff70	refs/heads/AcseleV13.8-AXAProd-ReasMult-LA-20161226
+b5666ac6486abfe81dd873ac28c33570a777fb39	refs/heads/AcseleV13.8-Asesuisa-20170601
+69e00b59221e0ae21c2f112e0d0110bd5c461906	refs/heads/AcseleV13.8-Asesuisa-20171205
+741f8d08b24582869c0531819456f752632d7817	refs/heads/AcseleV13.8-Asesuisa-20171212
+b5d5df1c08a33bcd0618791178c2e945cf08a044	refs/heads/AcseleV13.8-Asesuisa-20171219
+56a0f88795ba5f82a0f652eaccb071dd65b236b8	refs/heads/AcseleV13.8-Educacion-20160620
+8972e042373a061b36cf1a309b15bad366870633	refs/heads/AcseleV13.8-IS-VT-SOAT
+f1730facb5aa891126e93bf7e142fd0911ea6e10	refs/heads/AcseleV13.8-Interseguro-20160618
+5bb1d14f92a224cb3b46532f04aca3fd2d9c595c	refs/heads/AcseleV13.8-Interseguro-PreProduccion
+35308362c28e27541c05b8a4e31494204dcffb30	refs/heads/AcseleV13.8-Interseguro-VidaProduccion
+b4448573dac614d183bf47eee37c96fa6b51a4c0	refs/heads/AcseleV13.8-Interseguro-VidaTradicional
+78e06a5aab5a666bdb679332e165067cd546b344	refs/heads/AcseleV13.8-LBC-20160926
+e0fd57d46dd695e7222e0d4ea09fd81d79d5c1c3	refs/heads/AcseleV13.8-Preventa-20170608
+2fca9d9f918f9384bf21f38fc13cdd1d30e68309	refs/heads/AcseleV13.8-RIMAC-20170124
+5be9a9047beb5655576a63103f7c9eccca15c5ac	refs/heads/AcseleV13.8-RIMAC-20170817
+62b2d439e952c87ce03ab7582e23b8318b6dad8d	refs/heads/AcseleV13.8-Rural-FASEII-20170214
+f563bd1b69da679d0470a5e3e56ba16ff81c3d7b	refs/heads/AcseleV13.8-Rural-Produccion-20170109
+e4b9b78713373f76f3affd638e38b99a8ecc2f04	refs/heads/AcseleV13.8AXAPreProduccion-20161124
+924d1bc377b256f951318bbaabf7a71faae60e46	refs/heads/AcseleV13.8AXAPreProduccion-20170306
+f6be4acc6e4b340102a4c18fccd13cb99c451417	refs/heads/Branch_master
+cf61a0803530cad9530ccf8fc5af10ca3824a504	refs/heads/Mobile_Acsel_X
+950401822d64eaaa163a431b3241979993d4198b	refs/heads/Mobile_Vitalicia
+d9dc891600f76274ae669e0502ef077d86e4f459	refs/heads/Mobile_VitaliciaV1.4
+05cd484b12d454563e15ed21db4987530a5a1194	refs/heads/Mobile_VitaliciaV1.5
+c994ed9d6ab34b1a3415a1be3cd347a1eedd1843	refs/heads/Mobile_Vitalicia_Desarrollo
+e37dd355ef843b4a24b836dfdce52b44b2724847	refs/heads/Mobile_Vitalicia_III
+cf35b3e5d5bf66fcecb92446802d9638f1ab91c3	refs/heads/master
+eb2c546e535a3959ed701e1f5307aee14272c0e1	refs/heads/trunk
+
+
+$ git remote show origin
+* remote origin
+  Fetch URL: http://192.168.111.5:9000/git/Acsel-e.git
+  Push  URL: http://192.168.111.5:9000/git/Acsel-e.git
+  HEAD branch: master
+  Remote branches:
+    Acsele12.9_RimacWorksite                          tracked
+    Acsele12.9_RimacWorksite2                         tracked
+    AcseleV11.6.0_ASSA                                tracked
+    AcseleV11.9.9_InterDesa                           tracked
+    AcseleV12.9RC_Interseguro_IMP23869                tracked
+    AcseleV12.9_RimacWorksite2_20170220               tracked
+    AcseleV13.8                                       tracked
+    AcseleV13.8--POC-BiceVida-JBoss-AWS               tracked
+    AcseleV13.8-ALFA                                  tracked
+    AcseleV13.8-ALFA-Prod-20170328                    tracked
+    AcseleV13.8-ALFA_20170519                         tracked
+    AcseleV13.8-ALFA_20170630                         tracked
+    AcseleV13.8-ALFA_Certificacion                    tracked
+    AcseleV13.8-AXA-20160916                          tracked
+    AcseleV13.8-AXA-20171020                          tracked
+    AcseleV13.8-AXAProd                               tracked
+    AcseleV13.8-AXAProd-LA-201608016                  tracked
+    AcseleV13.8-AXAProd-ReasMult-LA-20161226          tracked
+    AcseleV13.8-Asesuisa-20170601                     tracked
+    AcseleV13.8-Asesuisa-20171205                     tracked
+    AcseleV13.8-Asesuisa-20171212                     tracked
+    AcseleV13.8-Asesuisa-20171219                     tracked
+    AcseleV13.8-Educacion-20160620                    tracked
+    AcseleV13.8-IS-VT-SOAT                            tracked
+    AcseleV13.8-Interseguro-20160618                  tracked
+    AcseleV13.8-Interseguro-PreProduccion             tracked
+    AcseleV13.8-Interseguro-VidaProduccion            tracked
+    AcseleV13.8-Interseguro-VidaTradicional           tracked
+    AcseleV13.8-LBC-20160926                          tracked
+    AcseleV13.8-Preventa-20170608                     tracked
+    AcseleV13.8-RIMAC-20170124                        tracked
+    AcseleV13.8-RIMAC-20170817                        tracked
+    AcseleV13.8-Rural-FASEII-20170214                 tracked
+    AcseleV13.8-Rural-Produccion-20170109             tracked
+    AcseleV13.8AXAPreProduccion-20161124              tracked
+    AcseleV13.8AXAPreProduccion-20170306              tracked
+    Branch_master                                     tracked
+    Mobile_Acsel_X                                    tracked
+    Mobile_Vitalicia                                  tracked
+    Mobile_VitaliciaV1.4                              tracked
+    Mobile_VitaliciaV1.5                              tracked
+    Mobile_Vitalicia_Desarrollo                       tracked
+    Mobile_Vitalicia_III                              tracked
+    master                                            tracked
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20160722 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20171109 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20171130 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/AcseleV13.8-Asesuisa-20171201 stale (use 'git remote prune' to remove)
+    refs/remotes/origin/Acselev13.8-AXAProd           stale (use 'git remote prune' to remove)
+    trunk                                             tracked
+  Local branches configured for 'git pull':
+    Acsele12.9_RimacWorksite2     merges with remote Acsele12.9_RimacWorksite2
+    AcseleV13.8-Asesuisa-20160722 merges with remote AcseleV13.8-Asesuisa-20160722
+    AcseleV13.8-RIMAC-20170124    merges with remote AcseleV13.8-RIMAC-20170124
+    master                        merges with remote master
+  Local refs configured for 'git push':
+    Acsele12.9_RimacWorksite2  pushes to Acsele12.9_RimacWorksite2  (local out of date)
+    AcseleV13.8-RIMAC-20170124 pushes to AcseleV13.8-RIMAC-20170124 (local out of date)
+    master                     pushes to master                     (local out of date)
+
+
+
+
