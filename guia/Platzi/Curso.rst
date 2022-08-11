@@ -142,14 +142,10 @@ Donde el SHA-1 es el identificador del commit
 Aporte creado por: Johan Mosquera
 
 
+Git reset vs. Git rm
+13/43
 
-
-
-
-
-
-
-
+LECTURA
 
 Git reset y git rm son comandos con utilidades muy diferentes, pero se pueden confundir muy fácilmente.
 
@@ -186,3 +182,288 @@ Bueno, todos los cambios están en el área de Staging, incluido el archivo con 
 En cambio, si usamos git reset HEAD, lo único que haremos será mover estos cambios de Staging a Unstaged. Seguiremos teniendo los últimos cambios del archivo, el repositorio mantendrá el archivo (no con sus últimos cambios, pero sí con los últimos en los que hicimos commit) y no habremos perdido nada.
 
 Conclusión: Lo mejor que puedes hacer para salvar tu puesto y evitar un incendio en tu trabajo es conocer muy bien la diferencia y los riesgos de todos los comandos de Git.
+
+Aporte creado por: Juan David Castro
+
+
+Flujo de trabajo básico con un repositorio remoto
+14/43
+
+RECURSOS
+MARCADORES
+Cuando empiezas a trabajar en un entorno local, el proyecto vive únicamente en tu computadora. Esto significa que no hay forma de que otros miembros del equipo trabajen en él.
+
+Para solucionar esto, utilizamos los servidores remotos: un nuevo estado que deben seguir nuestros archivos para conectarse y trabajar con equipos de cualquier parte del mundo.
+
+Estos servidores remotos pueden estar alojados en GitHub, GitLab, BitBucket, entre otros. Lo que van a hacer es guardar el mismo repositorio que tienes en tu computadora y darnos una URL con la que todos podremos acceder a los archivos del proyecto. Así, el equipo podrá descargarlos, hacer cambios y volverlos a enviar al servidor remoto para que otras personas vean los cambios, comparen sus versiones y creen nuevas propuestas para el proyecto.
+
+Esto significa que debes aprender algunos nuevos comandos
+
+Comandos para trabajo remoto con GIT
+git clone url_del_servidor_remoto: Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.
+git push: Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.
+git fetch: Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).
+git merge: También usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.
+git pull: Básicamente, git fetch y git merge al mismo tiempo.
+Adicionalmente, tenemos otros comandos que nos sirven para trabajar en proyectos muy grandes:
+
+git log --oneline:Te muestra el id commit y el título del commit.
+git log --decorate: Te muestra donde se encuentra el head point en el log.
+git log --stat: Explica el número de líneas que se cambiaron brevemente.
+git log -p: Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.
+git shortlog: Indica que commits ha realizado un usuario, mostrando el usuario y el título de sus commits.
+git log --graph --oneline --decorate y
+git log --pretty=format:"%cn hizo un commit %h el dia %cd": Muestra mensajes personalizados de los commits.
+git log -3: Limitamos el número de commits.
+git log --after=“2018-1-2”
+git log --after=“today” y
+git log --after=“2018-1-2” --before=“today”: Commits para localizar por fechas.
+git log --author=“Name Author”: Commits hechos por autor que cumplan exactamente con el nombre.
+git log --grep=“INVIE”: Busca los commits que cumplan tal cual está escrito entre las comillas.
+git log --grep=“INVIE” –i: Busca los commits que cumplan sin importar mayúsculas o minúsculas.
+git log – index.html: Busca los commits en un archivo en específico.
+git log -S “Por contenido”: Buscar los commits con el contenido dentro del archivo.
+git log > log.txt: guardar los logs en un archivo txt
+Aporte creado por: HellenBar
+
+
+
+Introducción a las ramas o branches de Git
+15/43
+
+RECURSOS
+MARCADORES
+Las ramas (branches) son la forma de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.
+
+La cabecera o HEAD representan la rama y el commit de esa rama donde estamos trabajando. Por defecto, esta cabecera aparecerá en el último commit de nuestra rama principal. Pero podemos cambiarlo al crear una rama (git branch rama, git checkout -b rama) o movernos en el tiempo a cualquier otro commit de cualquier otra rama con los comandos (git reset id-commit, git checkout rama-o-id-commit).
+
+Cómo funcionan las ramas en GIT
+Las ramas son la manera de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.
+
+git branch -nombre de la rama-: Con este comando se genera una nueva rama.
+
+git checkout -nombre de la rama-: Con este comando puedes saltar de una rama a otra.
+
+git checkout -b rama: Genera una rama y nos mueve a ella automáticamente, Es decir, es la combinación de git brach y git checkout al mismo tiempo.
+
+git reset id-commit: Nos lleva a cualquier commit no importa la rama, ya que identificamos el id del tag., eliminando el historial de los commit posteriores al tag seleccionado.
+
+git checkout rama-o-id-commit: Nos lleva a cualquier commit sin borrar los commit posteriores al tag seleccionado.
+
+
+.gitignore
+.gitignore
+*.txt
+src/
+
+
+(usa "git checkout -- <archivo>..." para descartar los cambios en el directorio de trabajo)
+
+(usa "git reset HEAD <archivo>..." para sacar del área de stage)
+
+git branch developer
+git branch calidad
+git checkout -b hotfix
+Cambiado a nueva rama 'hotfix'
+git checkout master
+Cambiado a rama 'master'
+git branch
+  calidad
+  developer
+  hotfix
+* master
+
+
+
+
+Fusión de ramas con Git merge
+16/43
+
+RECURSOS
+MARCADORES
+El comando git merge nos permite crear un nuevo commit con la combinación de dos ramas o branches (la rama donde nos encontramos cuando ejecutamos el comando y la rama que indiquemos después del comando).
+
+Cómo usar Git merge
+En este ejemplo, vamos a crear un nuevo commit en la rama master combinando los cambios de una rama llamada cabecera:
+
+git checkout master
+git merge cabecera
+Otra opción es crear un nuevo commit en la rama cabecera combinando los cambios de cualquier otra rama:
+
+git checkout cabecera
+git merge cualquier-otra-rama
+Asombroso, ¿verdad? Es como si Git tuviera superpoderes para saber qué cambios queremos conservar de una rama y qué otros de la otra. El problema es que no siempre puede adivinar, sobre todo en algunos casos donde dos ramas tienen actualizaciones diferentes en ciertas líneas en los archivos. Esto lo conocemos como un conflicto.
+
+Recuerda que al ejecutar el comando git checkout para cambiar de rama o commit puedes perder el trabajo que no hayas guardado. Guarda siempre tus cambios antes de hacer git checkout.
+
+Comandos básicos de GitHub
+git init: crear un repositorio.
+git add: agregar un archivo a staging.
+git commit -m “mensaje”: guardar el archivo en git con un mensaje.
+git branch: crear una nueva rama.
+git checkout: moverse entre ramas.
+git push: mandar cambios a un servidor remoto.
+git fetch: traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local.
+git merge: tiene dos usos. Uno es la fusión de ramas, funcionando como un commit en la rama actual, trayendo la rama indicada. Su otro uso es guardar los cambios de un servidor remoto en nuestro directorio.
+git pull: fetch y merge al mismo tiempo.
+Comandos para corrección en GitHub
+git checkout “codigo de version” “nombre del archivo”: volver a la última versión de la que se ha hecho commit.
+git reset: vuelve al pasado sin posibilidad de volver al futuro, se debe usar con especificaciones.
+git reset --soft: vuelve a la versión en el repositorio, pero guarda los cambios en staging. Así, podemos aplicar actualizaciones a un nuevo commit.
+git reset --hard: todo vuelve a su versión anterior
+git reset HEAD: saca los cambios de staging, pero no los borra. Es lo opuesto a git add.
+git rm: elimina los archivos, pero no su historial. Si queremos recuperar algo, solo hay que regresar. se utiliza así:
+git rm --cached elimina los archivos en staging pero los mantiene en el disco duro.
+git rm --force elimina los archivos de git y del disco duro.
+Comandos para revisión y comparación en GitHub
+git status: estado de archivos en el repositorio.
+git log: historia entera del archivo.
+git log --stat: cambios específicos en el archivo a partir de un commit.
+git show: cambios históricos y específicos hechos en un archivo.
+git diff “codigo de version 1” “codigo de version 2”: comparar cambios entre versiones.
+git diff: comparar directorio con staging.
+Aporte creado por: Pedro Alejandro Silva.
+
+(usa "git merge --abort" para abortar la fusion)
+
+git branch -d nombre_rama
+
+Si aún así queremos eliminar esa rama, se puede forzar el borrado de la siguiente manera:
+
+$ git branch -D nombre-rama
+
+En el caso de querer eliminar una rama del repositorio remoto, la sintaxis será la siguiente:
+
+$ git push origin :nombre-rama
+
+NOTA: MERGE en la rama master el programador edita la linea 10 del archivo index.html, en la rama calidad otro programador edita la linea 21 del archivo index.html. en ambas ramas se hace el commit. Luego nos paramos en la rama master y hacemos un merge de la rama calidad y se va fusionar bien.
+En el archivo index.html tendremos las modificaciones tanto de la linea 10 como de la linea 21
+cuando hagamos un git log, veremos el ultimo hash de la rama calidad, luego el ultimo hash de la rama master y por ultimo el hash del merge
+
+Si en ambas ramas ubieran editado la misma linea del archivo index.html, ahí si vamos a tener un conflicto al momento de hacer el merge
+
+
+Resolución de conflictos al hacer un merge
+17/43
+
+RECURSOS
+MARCADORES
+Git nunca borra nada, a menos que nosotros se lo indiquemos. Cuando usamos los comandos git merge o git checkout estamos cambiando de rama o creando un nuevo commit, no borrando ramas ni commits (recuerda que puedes borrar commits con git reset y ramas con git branch -d).
+
+Git es muy inteligente y puede resolver algunos conflictos automáticamente: cambios, nuevas líneas, entre otros. Pero algunas veces no sabe cómo resolver estas diferencias, por ejemplo, cuando dos ramas diferentes hacen cambios distintos a una misma línea.
+
+Esto lo conocemos como conflicto y lo podemos resolver manualmente. Solo debemos hacer el merge, ir a nuestro editor de código y elegir si queremos quedarnos con alguna de estas dos versiones o algo diferente. Algunos editores de código como Visual Studio Code nos ayudan a resolver estos conflictos sin necesidad de borrar o escribir líneas de texto, basta con hacer clic en un botón y guardar el archivo.
+
+Recuerda que siempre debemos crear un nuevo commit para aplicar los cambios del merge. Si Git puede resolver el conflicto, hará commit automáticamente. Pero, en caso de no pueda resolverlo, debemos solucionarlo y hacer el commit.
+
+Los archivos con conflictos por el comando git merge entran en un nuevo estado que conocemos como Unmerged. Funcionan muy parecido a los archivos en estado Unstaged, algo así como un estado intermedio entre Untracked y Unstaged. Solo debemos ejecutar git add para pasarlos al área de staging y git commit para aplicar los cambios en el repositorio.
+
+Cómo revertir un merge
+Si nos hemos equivocado y queremos cancelar el merge, debemos usar el siguiente comando:
+
+git merge --abort
+Conflictos en repositorios remotos
+Al trabajar con otras personas, es necesario utilizar un repositorio remoto.
+­
+-Para copiar el repositorio remoto al directorio de trabajo local, se utiliza el comando git clone <url>, y para enviar cambios al repositorio remoto se utiliza git push.
+-Para actualizar el repositorio local se hace uso del comando git fetch, luego se debe fusionar los datos traídos con los locales usando git merge.
+
+Para traer los datos y fusionarlos a la vez, en un solo comando, se usa git pull.
+­- Para crear commits rápidamente, fusionando git add y git commit -m "", usamos git commit -am "".
+­- Para generar nuevas ramas, hay que posicionarse sobre la rama que se desea copiar y utilizar el comando git branch <nombre>.
+Para saltar entre ramas, se usa el comando git checkout <branch>
+­- Una vez realizado los cambios en la rama, estas deben fusionarse con git merge.
+El merge ocurre en la rama en la que se está posicionado. Por lo tanto, la rama a fusionar se transforma en la principal.
+Los merges también son commits.
+Los merges pueden generar conflictos, esto aborta la acción y pide que soluciones el problema manualmente, aceptando o rechazando los cambios que vienen.
+Aporte creado por: José Tuzinkievicz, Lottie
+
+
+
+
+
+
+Cambios en GitHub: de master a main
+18/43
+
+LECTURA
+
+El escritor Argentino Julio Cortázar afirma que las palabras tienen color y peso. Por otro lado, los sinónimos existen por definición, pero no expresan lo mismo. Feo no es lo mismo que desagradable, ni aromático es lo mismo que oloroso.
+
+Por lo anterior podemos afirmar que los sinónimos no expresan lo mismo, no tienen el mismo “color” ni el mismo “peso”.
+
+Sí, esta lectura es parte del curso profesional de Git & GitHub. Quédate conmigo.
+
+Desde el 1 de octubre de 2020 GitHub cambió el nombre de la rama principal: ya no es “master” -como aprenderás en el curso- sino main.
+
+Este derivado de una profunda reflexión ocasionada por el movimiento #BlackLivesMatter.
+
+La industria de la tecnología lleva muchos años usando términos como master, slave, blacklist o whitelist y esperamos pronto puedan ir desapareciendo.
+
+Y sí, las palabras importan.
+
+Por lo que de aquí en adelante cada vez que escuches a Freddy mencionar “master” debes saber que hace referencia a “main”
+
+Puedes leer un poco más aquí: Cambios en GitHub: de master a main
+
+
+
+
+Uso de GitHub
+19/43
+
+RECURSOS
+MARCADORES
+GitHub es una plataforma que nos permite guardar repositorios de Git que podemos usar como servidores remotos y ejecutar algunos comandos de forma visual e interactiva (sin necesidad de la consola de comandos).
+
+Luego de crear nuestra cuenta, podemos crear o importar repositorios, crear organizaciones y proyectos de trabajo, descubrir repositorios de otras personas, contribuir a esos proyectos, dar estrellas y muchas otras cosas.
+
+El README.md es el archivo que veremos por defecto al entrar a un repositorio. Es una muy buena práctica configurarlo para describir el proyecto, los requerimientos y las instrucciones que debemos seguir para contribuir correctamente.
+
+Para clonar un repositorio desde GitHub (o cualquier otro servidor remoto) debemos copiar la URL (por ahora, usando HTTPS) y ejecutar el comando git clone + la URL que acabamos de copiar. Esto descargará la versión de nuestro proyecto que se encuentra en GitHub.
+
+Sin embargo, esto solo funciona para las personas que quieren empezar a contribuir en el proyecto.
+
+Cómo conectar un repositorio de Github a nuestro documento local
+Si queremos conectar el repositorio de GitHub con nuestro repositorio local, que creamos usando el comando git init, debemos ejecutar las siguientes instrucciones:
+
+Guardar la URL del repositorio de GitHub con el nombre de origin
+git remote add origin URL
+Verificar que la URL se haya guardado correctamente:
+git remote
+git remote -v
+Traer la versión del repositorio remoto y hacer merge para crear un commit con los archivos de ambas partes. Podemos usar git fetch y git merge o solo git pull con el flag --allow-unrelated-histories:
+git pull origin master --allow-unrelated-histories
+Por último, ahora sí podemos hacer git push para guardar los cambios de nuestro repositorio local en GitHub:
+git push origin master
+Archivos de la clase
+
+
+
+
+
+
+
+
+
+
+
+
+Cómo funcionan las llaves públicas y privadas
+20/43
+
+RECURSOS
+MARCADORES
+Las llaves públicas y privadas, conocidas también como cifrado asimétrico de un solo camino, sirven para mandar mensajes privados entre varios nodos con la lógica de que firmas tu mensaje con una llave pública vinculada con una llave privada que puede leer el mensaje.
+
+Las llaves públicas y privadas nos ayudan a cifrar y descifrar nuestros archivos de forma que los podamos compartir sin correr el riesgo de que sean interceptados por personas con malas intenciones.
+
+Cómo funciona un mensaje cifrado con llaves públicas y privadas
+Ambas personas deben crear su llave pública y privada.
+Ambas personas pueden compartir su llave pública a las otras partes (recuerda que esta llave es pública, no hay problema si la “interceptan”).
+La persona que quiere compartir un mensaje puede usar la llave pública de la otra persona para cifrar los archivos y asegurarse que solo puedan ser descifrados con la llave privada de la persona con la que queremos compartir el mensaje.
+El mensaje está cifrado y puede ser enviado a la otra persona sin problemas en caso de que los archivos sean interceptados.
+La persona a la que enviamos el mensaje cifrado puede emplear su llave privada para descifrar el mensaje y ver los archivos.
+Nota: puedes compartir tu llave pública, pero nunca tu llave privada.
+
+Aporte creado por: David Behar
